@@ -95,4 +95,9 @@ function init() {
 }
 
 // Function call to initialize app
+//this page is working for now, unsure what else to do without moving on to the other one
+module.exports = questions;
+
 init();
+
+
