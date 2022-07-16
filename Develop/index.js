@@ -12,7 +12,7 @@ const generateMarkdown = require('./utils/generateMarkdown.js');
 //Originally listed "message" as "question" before realizing that the message key was required for the inquirer prompt
 //Not sure whether to make array first or to make it inquirer.prompt method 
 
-// inquirer.prompt {[]
+
 
 
 //building question array to be exported here
@@ -22,6 +22,10 @@ const questions = [
     type: "Input",
     name: 'Title',
     message: 'What is the title of your project?'
+}, {
+    type: "Input",
+    name: 'License',
+    message: "What license does your project use?"
 }, {
     type: "Input",
     name: 'Description',
@@ -44,19 +48,11 @@ const questions = [
     message: "Are there any credits you'd like to record in the making of your project?"
 }, {
     type: "Input",
-    name: 'License',
-    message: "What license does your project use?"
-}, {
-    type: "Input",
-    name: 'Badges',
-    message: "What badges does your project use?"
-}, {
-    type: "Input",
     name: 'Features',
     message: "Are there any features of your project you'd like to describe?"
 }, {
     type: "Input",
-    name: 'How to Contribute',
+    name: 'Contribute',
     message: "Is there a way for people to contribute to your project's future development?"
 }, {
     type: "Input",
@@ -65,17 +61,17 @@ const questions = [
 },
 ];
 
-
+console.log(questions)
 //with questions recorded the process is now focused on how we will be writing that file. however before i check the function i wrote earlier i should check what is happening in the terminal. 
-// ]};
+
 
 //OK, sweet- inquirer is successfully prompting the user for question inputs upon running the node. 
 
 // TODO: Create a function to write README file
 // This is just the simple function that actually writes the file, note that fs is within the write TO file function and is not the actual function itself 
-function writeToFile(fileName, data) {
+function writeToFile(fileName, answers) {
 
-    fs.writeFile(fileName, data, function(err){
+    fs.writeFile(fileName, answers, function(err){
     if (err) {
         return console.log(err)
     } else {
@@ -86,11 +82,12 @@ function writeToFile(fileName, data) {
 }
 
 // TODO: Create a function to initialize app
-// This function is called at the end of the script to render the messages via inquirer and calls write and data functions
+// This function is called at the end of the script to render the messages via inquirer and calls write and answers functions
 function init() {
     inquirer.prompt(questions)
-        .then(function(data) {
-            writeToFile("README.md", generateTheMarkdown(data));
+        .then(function(answers) {
+            console.log(answers)
+            writeToFile("myGeneratedReadMe.md", generateMarkdown(answers));
         })
 }
 

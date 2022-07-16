@@ -4,7 +4,7 @@
 //TODO: these functions will be called within the generateMarkdown function
 //TODO: determine exactly what gen mark down function WANTS to do
 //the gen markdown function will be required by the index and used there to fill and render the readme with the writefile function
-//i know we're going to most likely need fs, inquirer, and the data from our index so i'll start there
+//i know we're going to most likely need fs, inquirer, and the answers from our index so i'll start there
 
 const fs = require('fs');
 const inquirer = require('inquirer');
@@ -26,7 +26,10 @@ function renderLicenseBadge(license) {
     } else {
       badge = ""
     }
+    return badge;
 };
+
+//return the badge out of the function at the end for export
 
 //Would like to figure out how to render userinput github into license badge above (line 25)
 
@@ -34,20 +37,84 @@ function renderLicenseBadge(license) {
 //So, this section simply matches the above licenses with links to their respective pages. Can write this essentially the same way.
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
+//Unsure about the Github license link. MIT and Apache were easy to find. 
 function renderLicenseLink(license) {
-
+  let licenseLink = "";
+    if (license === "Apache 2.0") {
+      licenseLink = "https://www.apache.org/licenses/LICENSE-2.0";
+    } else if (license === "MIT") {
+      licenseLink = "https://choosealicense.com/licenses/mit/";
+    } else if (license === "Github") {
+      licenseLink = "https://docs.github.com/en/rest/licenses";
+    }
+      else {
+      licenseLink = "";
+      }
+    return licenseLink;
 }
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {
 
+//This will simply render what I drew above or nothing if the license does not exist.
+function renderLicenseSection(license) {
+  let licenseSection = "";
+    if (license === 'None') {
+      licenseSection = "";
+    } else {
+      licenseSection = `License: ${license}`
+      //use backticks to render a string literal out of the license functions above
+    }
+    return licenseSection;
 }
 
 // TODO: Create a function to generate markdown for README
-function generateMarkdown(data) {
-  return `# ${data.title}
+function generateMarkdown(answers) {
+  
+//this will return all the answers to be rendered. template string literal so needs to be written with precision 
+//table of contents will include all elements to be rendered from user input in index.js
 
+  return `
+  # ${answers.title}
+
+  ## ${renderLicenseSection(answers.License)} ##${renderLicenseBadge(answers.License)}
+  ### ${renderLicenseLink(answers.License)}
+
+  ## Table of Contents:
+
+  ### * [License](#license)
+  ### * [Description](#description)
+  ### * [Installation] (#installation)
+  ### * [Usage](#usage)
+  ### * [Screenshots](#screenshots)
+  ### * [Credits](#credits)
+  ### * [Features](#features)
+  ### * [How to Contribute](#contribute)
+  ### * [Tests](#tests)
+
+  ## Description
+  ### ${answers.description}
+
+  ## Installation 
+  ### ${answers.installation}
+
+  ## Usage
+  ### ${answers.usage}
+
+  ## Screenshots
+  ### ${answers.screenshots}
+
+  ## Credits
+  ### ${answers.credits}
+
+  ## Features
+  ### ${answers.features}
+
+  ## How to Contribute
+  ### ${answers.contribute}
+
+  ## Tests
+  ### ${answers.tests}
 `;
 }
 
