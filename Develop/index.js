@@ -2,62 +2,67 @@
 // Packages required are inquirer for sure, fs for sure, not sure what else yet 
 const inquirer = require('inquirer');
 const fs = require('fs');
-const util = require('util');
+// const util = require('util');
 
 // Const function that creates the question arrays 
 const generateTheMarkdown = require('./utils/generateMarkdown');
 // TODO: Create an array of questions for user input
 // These are the questions to be generated
+//Originally listed "message" as "question" before realizing that the message key was required for the inquirer prompt
+//Not sure whether to make array first or to make it inquirer.prompt method 
+
+// inquirer.prompt {[
 const questions = [{
     name: 'Title',
     type: "Input",
-    question: 
+    message: 'What is the title of your project?'
 }, {
     name: 'Description',
-    type:
-    question: 
+    type: "Input",
+    message: 
 }, {
     name: 'Table of Contents',
     type: "Input",
-    question: 
+    message: 
 }, {
     name: 'Installation',
     type: "Input",
-    question: 
+    message: 
 }, {
     name: 'Usage',
     type: "Input",
-    question: 
+    message: 
 }, {
     name: 'Screenshots',
     type: "Input",
-    question: 
+    message: 
 }, {
     name: 'Credits',
     type: "Input",
-    question: 
+    message: 
 }, {
     name: 'License',
     type: "Input",
-    question: 
+    message: 
 }, {
     name: 'Badges',
     type: "Input",
-    question: 
+    message: 
 }, {
     name: 'Features',
     type: "Input",
-    question: 
+    message: 
 }, {
     name: 'How to Contribute',
     type: "Input",
-    question: 
+    message: 
 }, {
     name: 'Tests',
     type: "Input",
-    question: 
+    message: 
 },
 ];
+// ]};
 
 // TODO: Create a function to write README file
 // This is just the simple function that actually writes the file, note that fs is within the write TO file function and is not the actual function itself 
@@ -74,7 +79,7 @@ function writeToFile(fileName, data) {
 }
 
 // TODO: Create a function to initialize app
-// This function is called at the end of the script to render the questions via inquirer and calls write and data functions
+// This function is called at the end of the script to render the messages via inquirer and calls write and data functions
 function init() {
     inquirer.prompt(questions)
         .then(function(data) {
