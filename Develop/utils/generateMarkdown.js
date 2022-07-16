@@ -75,7 +75,7 @@ function generateMarkdown(answers) {
 //table of contents will include all elements to be rendered from user input in index.js
 
   return `
-  # ${answers.title}
+  # ${answers.Title}
 
   ## ${renderLicenseSection(answers.License)} ##${renderLicenseBadge(answers.License)}
   ### ${renderLicenseLink(answers.License)}
@@ -93,29 +93,34 @@ function generateMarkdown(answers) {
   ### * [Tests](#tests)
 
   ## Description
-  ### ${answers.description}
+  ### ${answers.Description}
 
   ## Installation 
-  ### ${answers.installation}
+  ### ${answers.Installation}
 
   ## Usage
-  ### ${answers.usage}
+  ### ${answers.Usage}
 
   ## Screenshots
-  ### ${answers.screenshots}
+  ### ${answers.Screenshots}
 
   ## Credits
-  ### ${answers.credits}
+  ### ${answers.Credits}
 
   ## Features
-  ### ${answers.features}
+  ### ${answers.Features}
 
   ## How to Contribute
-  ### ${answers.contribute}
+  ### ${answers.Contribute}
 
   ## Tests
-  ### ${answers.tests}
+  ### ${answers.Tests}
 `;
 }
+
+
+//Learned a major lesson here in specificity when retrieving data object:
+//At first all of my properties were in lowercase- I realized that in my questions array I had begun all names uppercase. Oops. This was why things were coming back undefined. 
+//Going to leave the uppercase for this assignment, but this is important to remember- really there was no reason to uppercase those names, just my inner English major coming out. 
 
 module.exports = generateMarkdown;

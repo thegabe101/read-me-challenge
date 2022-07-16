@@ -61,6 +61,8 @@ const questions = [
 },
 ];
 
+//would like to add property to detect lack of user input. either force input or move on but how is empty field rendered? need to google. 
+
 console.log(questions)
 //with questions recorded the process is now focused on how we will be writing that file. however before i check the function i wrote earlier i should check what is happening in the terminal. 
 
@@ -69,9 +71,12 @@ console.log(questions)
 
 // TODO: Create a function to write README file
 // This is just the simple function that actually writes the file, note that fs is within the write TO file function and is not the actual function itself 
+
+
 function writeToFile(fileName, answers) {
 
-    fs.writeFile(fileName, answers, function(err){
+    fs.writeFile(fileName, answers, function(err) {
+        console.log(fileName, answers)
     if (err) {
         return console.log(err)
     } else {
@@ -80,6 +85,8 @@ function writeToFile(fileName, answers) {
     })
 
 }
+
+
 
 // TODO: Create a function to initialize app
 // This function is called at the end of the script to render the messages via inquirer and calls write and answers functions
