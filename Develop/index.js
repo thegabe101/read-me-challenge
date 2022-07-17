@@ -21,49 +21,123 @@ const questions = [
     {
     type: "Input",
     name: 'Title',
-    message: 'What is the title of your project?'
+    message: 'What is the title of your project?',
+    validate: titleEntered => {
+        if (titleEntered) {
+            return true;
+        } else {
+            console.log("Please choose a title for your project.")
+            return false;
+        }
+    }
 }, {
     type: "Input",
     name: 'License',
-    message: "What license does your project use?"
+    message: "What license does your project use?",
 }, {
     type: "Input",
     name: 'Description',
-    message: "How would you describe your project?"
+    message: "How would you describe your project?",
+    validate: descriptionEntered => {
+        if (descriptionEntered) {
+            return true;
+        } else {
+            console.log("Please provide a description for your project.")
+            return false;
+        }
+    }
 }, {
     type: "Input",
     name: 'Installation',
-    message: "Are there any special steps required to install your project?"
+    message: "Are there any special steps required to install your project?",
+    validate: installationEntered => {
+        if (installationEntered) {
+            return true;
+        } else {
+            console.log("If no special steps are required to install your project, please enter 'none'.")
+            return false;
+        }
+    }
 }, {
     type: "Input",
     name: 'Usage',
-    message: "How does a user use the project you have built?"
+    message: "How does a user use the project you have built?",
+    validate: usageEntered => {
+        if (usageEntered) {
+            return true;
+        } else {
+            console.log("Please describe userflow of your project.")
+            return false;
+        }
+    }
 }, {
     type: "Input",
     name: 'Screenshots',
-    message: "Will you provide screenshots in your readme?"
+    message: "Will you provide screenshots in your readme?",
+    validate: screenshotsEntered => {
+        if (screenshotsEntered) {
+            return true;
+        } else {
+            console.log("Please state whether or not you will be providing screenshots of your project.")
+            return false;
+        }
+    }
 }, {
     type: "Input",
     name: 'Credits',
-    message: "Are there any credits you'd like to record in the making of your project?"
+    message: "Are there any credits you'd like to record in the making of your project?",
+    validate: creditsEntered => {
+        if (creditsEntered) {
+            return true;
+        } else {
+            console.log("Please enter credits for your project. If none are necessary, please enter 'none.'")
+            return false;
+        }
+    }
 }, {
     type: "Input",
     name: 'Features',
-    message: "Are there any features of your project you'd like to describe?"
+    message: "Are there any features of your project you'd like to describe?",
+    validate: featuresEntered => {
+        if (featuresEntered) {
+            return true;
+        } else {
+            console.log("Please list the major features of your project.")
+            return false;
+        }
+    }
 }, {
     type: "Input",
     name: 'Contribute',
-    message: "Is there a way for people to contribute to your project's future development?"
+    message: "Is there a way for people to contribute to your project's future development?",
+    validate: contributeEntered => {
+        if (contributeEntered) {
+            return true;
+        } else {
+            console.log("Please list any ways to contribute to your project. You may enter 'N/A' if contributions are not invited.")
+            return false;
+        }
+    }
 }, {
     type: "Input",
     name: 'Tests',
-    message: "Have you run any tests on your project?"
+    message: "Have you run any tests on your project?",
+    validate: testsEntered => {
+        if (testsEntered) {
+            return true;
+        } else {
+            console.log("Please enter yes or no. If yes, please provide the user information on what sort of tests you have run.")
+            return false;
+        }
+    }
 },
 ];
 
+
+//added validation for all questions except license (which still needs a choices property). this just ensures that there is an input and, if not, re-prompts the user.
 //would like to add property to detect lack of user input. either force input or move on but how is empty field rendered? need to google. 
 
-console.log(questions)
+// console.log(questions)
 //with questions recorded the process is now focused on how we will be writing that file. however before i check the function i wrote earlier i should check what is happening in the terminal. 
 
 

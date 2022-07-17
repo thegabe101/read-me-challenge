@@ -84,13 +84,14 @@ function generateMarkdown(answers) {
 
   ### * [License](#license)
   ### * [Description](#description)
-  ### * [Installation] (#installation)
+  ### * [Installation](#installation)
   ### * [Usage](#usage)
   ### * [Screenshots](#screenshots)
   ### * [Credits](#credits)
   ### * [Features](#features)
   ### * [How to Contribute](#contribute)
   ### * [Tests](#tests)
+  ### * [Questions](#questions)
 
   ## Description
   ### ${answers.Description}
@@ -115,6 +116,12 @@ function generateMarkdown(answers) {
 
   ## Tests
   ### ${answers.Tests}
+
+  ## Questions
+  ### Questions are invited! You may contact me at the developer of this readme generator at:
+  ### Email: Sowa332@gmail.com 
+  ### OR you can find the full repository of this project at:
+  ### Github: https://github.com/thegabe101/read-me-challenge
 `;
 }
 
