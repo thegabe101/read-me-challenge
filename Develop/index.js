@@ -34,6 +34,15 @@ const questions = [
     type: "Input",
     name: 'License',
     message: "What license does your project use?",
+    choices: ['None', 'Apache 2.0', 'MIT', 'Github'],
+    validate: licenseEntered => {
+        if (licenseEntered) {
+            return true;
+        } else {
+            console.log('You must choose one of the four options for your license. Please note you can select none if no license is applicable.')
+            return false;
+        }
+    }
 }, {
     type: "Input",
     name: 'Description',

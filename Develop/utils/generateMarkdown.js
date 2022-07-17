@@ -119,7 +119,7 @@ function generateMarkdown(answers) {
 
   ## Questions
   ### Questions are invited! You may contact me at the developer of this readme generator at:
-  ### Email: Sowa332@gmail.com 
+  ### Email: Sowa332@gmail.com
   ### OR you can find the full repository of this project at:
   ### Github: https://github.com/thegabe101/read-me-challenge
 `;
