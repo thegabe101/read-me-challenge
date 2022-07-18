@@ -19,8 +19,8 @@ const generateMarkdown = require('./utils/generateMarkdown.js');
 //originally wrote name then type then message for these but that is actually confusing. better to start with overall type first before specificying id so need to change it. 
 const questions = [
     {
-    type: "Input",
-    name: 'Title',
+    type: "input",
+    name: 'title',
     message: 'What is the title of your project?',
     validate: titleEntered => {
         if (titleEntered) {
@@ -32,7 +32,10 @@ const questions = [
     }
 }, {
     //wasn't sure why this option wasn't working, but looked up different typologies. need to use a list here; otherwise inquirer will look for only one value. 
-    type: "List",
+    //still having trouble getting license choices to work. cannot get options to show up in terminal. 
+    //again a casing problem with list which is why it wasn't working. need to kick habit of capitalization. 
+    //TODO: Determine why option [list] not showing up in terminal with [choices].
+    type: "list",
     name: 'license',
     message: "What license does your project use?",
     choices: ['None', 'Apache 2.0', 'MIT', 'Github'],
@@ -45,8 +48,8 @@ const questions = [
         }
     }
 }, {
-    type: "Input",
-    name: 'Description',
+    type: "input",
+    name: 'description',
     message: "How would you describe your project?",
     validate: descriptionEntered => {
         if (descriptionEntered) {
@@ -57,8 +60,8 @@ const questions = [
         }
     }
 }, {
-    type: "Input",
-    name: 'Installation',
+    type: "input",
+    name: 'installation',
     message: "Are there any special steps required to install your project?",
     validate: installationEntered => {
         if (installationEntered) {
@@ -69,8 +72,8 @@ const questions = [
         }
     }
 }, {
-    type: "Input",
-    name: 'Usage',
+    type: "input",
+    name: 'usage',
     message: "How does a user use the project you have built?",
     validate: usageEntered => {
         if (usageEntered) {
@@ -81,8 +84,8 @@ const questions = [
         }
     }
 }, {
-    type: "Input",
-    name: 'Screenshots',
+    type: "input",
+    name: 'screenshots',
     message: "Will you provide screenshots in your readme?",
     validate: screenshotsEntered => {
         if (screenshotsEntered) {
@@ -93,8 +96,8 @@ const questions = [
         }
     }
 }, {
-    type: "Input",
-    name: 'Credits',
+    type: "input",
+    name: 'credits',
     message: "Are there any credits you'd like to record in the making of your project?",
     validate: creditsEntered => {
         if (creditsEntered) {
@@ -105,8 +108,8 @@ const questions = [
         }
     }
 }, {
-    type: "Input",
-    name: 'Features',
+    type: "input",
+    name: 'features',
     message: "Are there any features of your project you'd like to describe?",
     validate: featuresEntered => {
         if (featuresEntered) {
@@ -117,8 +120,8 @@ const questions = [
         }
     }
 }, {
-    type: "Input",
-    name: 'Contribute',
+    type: "input",
+    name: 'contribute',
     message: "Is there a way for people to contribute to your project's future development?",
     validate: contributeEntered => {
         if (contributeEntered) {
@@ -129,8 +132,8 @@ const questions = [
         }
     }
 }, {
-    type: "Input",
-    name: 'Tests',
+    type: "input",
+    name: 'tests',
     message: "Have you run any tests on your project?",
     validate: testsEntered => {
         if (testsEntered) {
@@ -141,7 +144,7 @@ const questions = [
         }
     }
 }, {
-    type: "Input",
+    type: "input",
     name: 'email',
     message: "What contact email would you like listed on your readme?",
     validate: emailEntered => {
@@ -153,7 +156,7 @@ const questions = [
         }
     }
 }, {
-    type: "Input",
+    type: "input",
     name: 'github',
     message: "Is there a Github repository link for your project? If so, please paste it here.",
 },

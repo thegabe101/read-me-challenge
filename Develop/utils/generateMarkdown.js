@@ -18,11 +18,11 @@ const index = require('../index');
 function renderLicenseBadge(license) {
   let badge = "";
     if (license === 'Apache 2.0') {
-      badge = ![License]('https://img.shields.io/badge/license-Apache2.0-blue')
+      badge = ('https://img.shields.io/badge/license-Apache2.0-blue')
     } else if (license === 'MIT') {
-      badge = ![License]('https://img.shields.io/badge/license-MIT-blueviolet')
+      badge = ('https://img.shields.io/badge/license-MIT-blueviolet')
     } else if (license === 'Github') {
-      badge = ![License]('https://img.shields.io/badge/license-github-success')
+      badge = ('https://img.shields.io/badge/license-github-success')
     } else {
       badge = ""
     }
@@ -38,6 +38,7 @@ function renderLicenseBadge(license) {
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
 //Unsure about the Github license link. MIT and Apache were easy to find. 
+//having issues detecting license for print in match between gen and index.js. stricly equal should be correct and strings match. These functions should return the link, badge, and section to render the license bassed on matching choice in inquirer but something is not correct.
 function renderLicenseLink(license) {
   let licenseLink = "";
     if (license === "Apache 2.0") {
@@ -69,20 +70,24 @@ function renderLicenseSection(license) {
 }
 
 // TODO: Create a function to generate markdown for README
+//can't log my badge or license, which means something is wrong above. 
 function generateMarkdown(answers) {
+  console.log(answers);
+  
   
 //this will return all the answers to be rendered. template string literal so needs to be written with precision 
 //table of contents will include all elements to be rendered from user input in index.js
+//license function call renders the result of rendering functions above with the answers.license set as a parameter from the question array in index.js
+
 
   return `
-  # ${answers.Title}
+  # ${answers.title}
 
-  ## ${renderLicenseSection(answers.license)} ##${renderLicenseBadge(answers.license)}
+  ##${renderLicenseSection(answers.license)} ##${renderLicenseBadge(answers.license)}
   ### ${renderLicenseLink(answers.license)}
 
   ## Table of Contents:
 
-  ### * [License](#license)
   ### * [Description](#description)
   ### * [Installation](#installation)
   ### * [Usage](#usage)
@@ -94,28 +99,28 @@ function generateMarkdown(answers) {
   ### * [Questions](#questions)
 
   ## Description
-  ### ${answers.Description}
+  ### ${answers.description}
 
   ## Installation 
-  ### ${answers.Installation}
+  ### ${answers.installation}
 
   ## Usage
-  ### ${answers.Usage}
+  ### ${answers.usage}
 
   ## Screenshots
-  ### ${answers.Screenshots}
+  ### ${answers.screenshots}
 
   ## Credits
-  ### ${answers.Credits}
+  ### ${answers.credits}
 
   ## Features
-  ### ${answers.Features}
+  ### ${answers.features}
 
   ## How to Contribute
-  ### ${answers.Contribute}
+  ### ${answers.contribute}
 
   ## Tests
-  ### ${answers.Tests}
+  ### ${answers.tests}
 
   ## Questions
   ### Questions are invited! You may contact the developer of this project at:
