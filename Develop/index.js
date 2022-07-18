@@ -31,8 +31,9 @@ const questions = [
         }
     }
 }, {
-    type: "Input",
-    name: 'License',
+    //wasn't sure why this option wasn't working, but looked up different typologies. need to use a list here; otherwise inquirer will look for only one value. 
+    type: "List",
+    name: 'license',
     message: "What license does your project use?",
     choices: ['None', 'Apache 2.0', 'MIT', 'Github'],
     validate: licenseEntered => {
@@ -139,6 +140,22 @@ const questions = [
             return false;
         }
     }
+}, {
+    type: "Input",
+    name: 'email',
+    message: "What contact email would you like listed on your readme?",
+    validate: emailEntered => {
+        if (emailEntered) {
+            return true;
+        } else {
+            console.log("Please enter a contact email to continue.")
+            return false;
+        }
+    }
+}, {
+    type: "Input",
+    name: 'github',
+    message: "Is there a Github repository link for your project? If so, please paste it here.",
 },
 ];
 

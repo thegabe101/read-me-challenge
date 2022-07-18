@@ -77,8 +77,8 @@ function generateMarkdown(answers) {
   return `
   # ${answers.Title}
 
-  ## ${renderLicenseSection(answers.License)} ##${renderLicenseBadge(answers.License)}
-  ### ${renderLicenseLink(answers.License)}
+  ## ${renderLicenseSection(answers.license)} ##${renderLicenseBadge(answers.license)}
+  ### ${renderLicenseLink(answers.license)}
 
   ## Table of Contents:
 
@@ -118,10 +118,10 @@ function generateMarkdown(answers) {
   ### ${answers.Tests}
 
   ## Questions
-  ### Questions are invited! You may contact me at the developer of this readme generator at:
-  ### Email: Sowa332@gmail.com
+  ### Questions are invited! You may contact the developer of this project at:
+  ### Email: ${answers.email}
   ### OR you can find the full repository of this project at:
-  ### Github: https://github.com/thegabe101/read-me-challenge
+  ### Github: ${answers.github}
 `;
 }
 
