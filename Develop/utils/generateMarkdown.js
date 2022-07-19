@@ -18,15 +18,15 @@ const index = require('../index');
 function renderLicenseBadge(license) {
   let badge = "";
     if (license === 'Apache 2.0') {
-      badge = ('https://img.shields.io/badge/license-Apache2.0-blue')
+      badge = `![Alt = badge](https://img.shields.io/badge/license-Apache2.0-blue)`
     } else if (license === 'MIT') {
-      badge = ('https://img.shields.io/badge/license-MIT-blueviolet')
+      badge = `![Alt = badge](https://img.shields.io/badge/license-MIT-blueviolet)`
     } else if (license === 'Github') {
-      badge = ('https://img.shields.io/badge/license-github-success')
+      badge = `![Alt = badge](https://img.shields.io/badge/license-github-success)`
     } else if (license === 'GPLv2') {
-      badge = ('https://img.shields.io/badge/license-GPLv2-yellowgreen')
+      badge = `![Alt = badge](https://img.shields.io/badge/license-GPLv2-yellowgreen)`
     } else if (license === 'Modzilla') {
-      badge = ('https://img.shields.io/badge/license-Modzilla-orange')
+      badge = `![Alt = badge](https://img.shields.io/badge/license-Modzilla-orange)`
     }
       else {
       badge = ""
@@ -92,7 +92,8 @@ function generateMarkdown(answers) {
   return `
   # ${answers.title}
 
-  ##${renderLicenseSection(answers.license)} ##${renderLicenseBadge(answers.license)}
+  ## ${renderLicenseSection(answers.license)} 
+  ## ${renderLicenseBadge(answers.license)}
   ### ${renderLicenseLink(answers.license)}
 
   ## Table of Contents:

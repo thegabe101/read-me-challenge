@@ -13,7 +13,7 @@ const generateMarkdown = require('./utils/generateMarkdown.js');
 //Not sure whether to make array first or to make it inquirer.prompt method 
 
 
-
+//default: (whatever you want default to be) - potentially better than validate 
 
 //building question array to be exported here
 //originally wrote name then type then message for these but that is actually confusing. better to start with overall type first before specificying id so need to change it. 
