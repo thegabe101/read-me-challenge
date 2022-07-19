@@ -97,15 +97,15 @@ function generateMarkdown(answers) {
 
   ## Table of Contents:
 
-  ### * [Description](#description)
-  ### * [Installation](#installation)
-  ### * [Usage](#usage)
-  ### * [Screenshots](#screenshots)
-  ### * [Credits](#credits)
-  ### * [Features](#features)
-  ### * [Contribute](#contribute)
-  ### * [Tests](#tests)
-  ### * [Questions](#questions)
+  - [Description](#description)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Screenshots](#screenshots)
+  - [Credits](#credits)
+  - [Features](#features)
+  - [Contribute](#contribute)
+  - [Tests](#tests)
+  - [Questions](#questions)
 
   ## Description
   ### ${answers.description}
