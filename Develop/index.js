@@ -38,7 +38,7 @@ const questions = [
     type: "list",
     name: 'license',
     message: "What license does your project use?",
-    choices: ['None', 'Apache 2.0', 'MIT', 'Github'],
+    choices: ['None', 'Apache 2.0', 'MIT', 'Github', 'GPLv2', 'Modzilla'],
     validate: licenseEntered => {
         if (licenseEntered) {
             return true;
@@ -158,7 +158,7 @@ const questions = [
 }, {
     type: "input",
     name: 'github',
-    message: "Is there a Github repository link for your project? If so, please paste it here.",
+    message: "Do you have a link to your Github page? If so, please paste it here.",
 },
 ];
 

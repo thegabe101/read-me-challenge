@@ -23,7 +23,12 @@ function renderLicenseBadge(license) {
       badge = ('https://img.shields.io/badge/license-MIT-blueviolet')
     } else if (license === 'Github') {
       badge = ('https://img.shields.io/badge/license-github-success')
-    } else {
+    } else if (license === 'GPLv2') {
+      badge = ('https://img.shields.io/badge/license-GPLv2-yellowgreen')
+    } else if (license === 'Modzilla') {
+      badge = ('https://img.shields.io/badge/license-Modzilla-orange')
+    }
+      else {
       badge = ""
     }
     return badge;
@@ -47,6 +52,10 @@ function renderLicenseLink(license) {
       licenseLink = "https://choosealicense.com/licenses/mit/";
     } else if (license === "Github") {
       licenseLink = "https://docs.github.com/en/rest/licenses";
+    } else if (license === "GPLv2") {
+      licenseLink = "https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html"
+    } else if (license === "Modzilla") {
+      licenseLink = "https://www.mozilla.org/en-US/MPL/"
     }
       else {
       licenseLink = "";
@@ -94,7 +103,7 @@ function generateMarkdown(answers) {
   ### * [Screenshots](#screenshots)
   ### * [Credits](#credits)
   ### * [Features](#features)
-  ### * [How to Contribute](#contribute)
+  ### * [Contribute](#contribute)
   ### * [Tests](#tests)
   ### * [Questions](#questions)
 
@@ -116,7 +125,7 @@ function generateMarkdown(answers) {
   ## Features
   ### ${answers.features}
 
-  ## How to Contribute
+  ## Contribute
   ### ${answers.contribute}
 
   ## Tests
@@ -125,7 +134,7 @@ function generateMarkdown(answers) {
   ## Questions
   ### Questions are invited! You may contact the developer of this project at:
   ### Email: ${answers.email}
-  ### OR you can find the full repository of this project at:
+  ### OR you can find the full repository of this project at my Github page:
   ### Github: ${answers.github}
 `;
 }
